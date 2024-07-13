@@ -1,23 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-deployment
+  name: todo-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: todo-app
+      app: todo-service
   template:
     metadata:
       labels:
-        app: todo-app
+        app: todo-service
     spec:
       containers:
-      - name: todo-container
+      - name: todo-service
         image: konami98/todo-service:latest
         ports:
-        - containerPort: 80
-
+        - containerPort: 8000
+        env:
+        - name: REDIS_URL
+          value: "redis://redis:6379"
 ---
 apiVersion: v1
 kind: Service
@@ -25,9 +27,9 @@ metadata:
   name: todo-service
 spec:
   selector:
-    app: todo-app
+    app: todo-service
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 8000
+    targetPort: 8000
   type: ClusterIP
