@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-and-push-api-gateway:
+    if: github.event.head_commit.modified && contains(github.event.head_commit.modified, 'api-gateway/')
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +31,7 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest
 
   build-and-push-todo-service:
+    if: github.event.head_commit.modified && contains(github.event.head_commit.modified, 'todo-service/')
     runs-on: ubuntu-latest
 
     steps:
