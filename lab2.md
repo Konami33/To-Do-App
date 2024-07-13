@@ -1,12 +1,12 @@
 # To-Do App Microservices Deployment Documentation
 
-#### Overview
+## Overview
 
 This GitHub Actions workflow automates the process of building and pushing Docker images for api-gateway and todo-service components of your application whenever changes are pushed to the main branch. It ensures that Docker images are only built and pushed if there are changes in the respective directories.
 
 ![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-5.png)
 
-#### Workflow Configuration
+### Workflow Configuration
 
 The workflow file is named Build and Push Docker Images.yml and resides in your repository's .github/workflows/ directory. It is triggered on a push event to the main branch, specifically monitoring changes in the api-gateway and todo-service directories.
 
@@ -58,7 +58,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.service }}:latest
 ```
-#### Workflow Explanation
+### Workflow Explanation
 
 1. *Triggering the Workflow*:  
    The workflow triggers on any push to the main branch, but it will only execute if changes are detected in the api-gateway or todo-service directories.
@@ -74,7 +74,7 @@ jobs:
    - *Check for changes in directory*: Uses a script to determine if there are changes in the specific service directory (api-gateway or todo-service).
    - *Build and push image*: If changes are detected (env.changes == 'true'), it builds the Docker image from the service directory and pushes it to Docker Hub.
 
-#### Security Considerations
+### Security Considerations
 
 - *Secrets Management*: Ensure that DOCKER_USERNAME and DOCKER_PASSWORD are securely stored in GitHub Secrets and not exposed in your workflow file.
 - *Build Triggers*: Limiting builds to specific directories (api-gateway and todo-service) reduces unnecessary builds, improving security by minimizing exposure of build processes.
