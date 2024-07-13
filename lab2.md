@@ -4,7 +4,7 @@
 
 This GitHub Actions workflow automates the process of building and pushing Docker images for api-gateway and todo-service components of your application whenever changes are pushed to the main branch. It ensures that Docker images are only built and pushed if there are changes in the respective directories.
 
-![alt text](./images/image-5.png)
+![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-5.png)
 
 #### Workflow Configuration
 
@@ -228,7 +228,7 @@ Once the Docker images are successfully pushed to `Docker Hub`, the next step is
    - Check the deployment status using `kubectl get pods`, `kubectl get services`, and `kubectl get deployments`.
    - Verify that all pods are running without errors.
 
-   ![alt text](./images/image-1.png)
+   ![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-1.png)
 
 5. **Access Your Application**
 
@@ -237,14 +237,14 @@ Once the Docker images are successfully pushed to `Docker Hub`, the next step is
     kubectl get svc
     ```
 
-    ![alt text](./images/image-2.png)
+    ![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-2.png)
 
     - Get the internal-ip:
     ```sh
     kubectl get nodes -o wide
     ```
 
-    ![alt text](./images/image-4.png)
+    ![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-4.png)
 
 6. **Check the api end-points**
 
@@ -273,7 +273,7 @@ Once the Docker images are successfully pushed to `Docker Hub`, the next step is
     curl -X DELETE http://internal-ip:<node-port>/<task_id>
     ```
 
-    ![alt text](./images/image-3.png)
+    ![alt text](https://github.com/Konami33/To-Do-App/raw/main/images/image-3.png)
 
 
 ### Conclusion
