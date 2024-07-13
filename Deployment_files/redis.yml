@@ -30,7 +30,9 @@ spec:
   - protocol: TCP
     port: 6379
     targetPort: 6379
+    name: redis
   - protocol: TCP
     port: 8001
     targetPort: 8001
+    name: redis-dashboard
   type: ClusterIP
